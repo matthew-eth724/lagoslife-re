@@ -12,7 +12,8 @@ findings in this repository and the handling rules for anyone who uses it.
 ## Disclosure status
 
 **As of 2026-10-20 the findings have not been reported to the vendor.** The repository is
-private and unreported.
+publicly hosted at `github.com/matthew-eth724/lagoslife-re`, so the analysis is disclosed
+even though the operator has not been notified.
 
 | Finding | Subject | Severity | Status |
 |---|---|---|---|
@@ -29,8 +30,9 @@ private and unreported.
 | F-11 | No `__Host-` cookie prefix | Low | Not reported |
 | F-12 | State-changing operations as `GET` | Low | Not reported |
 
-If you publish this repository, you are making a disclosure decision. Reporting to the
-vendor first, with a 90-day window before public release, is the conventional path.
+This repository is **already public**. The conventional path from here is to notify the
+operator now and offer a 90-day window before any further detail is published — and to
+take the repository private or redact it promptly if they ask.
 
 ## Handling rules
 
@@ -66,6 +68,6 @@ removal of any finding the operator disputes or has since fixed.
 
 | Date | Event |
 |---|---|
-| 2026-10-20 | Captures taken; analysis written; repository created |
+| 2026-10-20 | Captures taken; analysis written; repository published publicly |
 | — | Vendor notification — *pending* |
-| — | Public disclosure — *not planned* |
+| — | Further public detail — *hold until the operator responds* |
