@@ -352,7 +352,7 @@ versus a different response for a real account with a bad password. The `code` f
 ```bash
 curl -s -w '\n%{http_code}\n' -X POST https://lagoslife.app/api/auth/login \
   -H 'Content-Type: application/json' \
-  -d '{"username":"no_such_player_zz9","password":"invalid"}'
+  -d '{"username":"no_such_player_zz9","password":"invalid"}'  # allow-secret: dummy value
 ```
 
 Expected: `404` with `{"error":"We can't find a player called …","code":"no_user"}`.

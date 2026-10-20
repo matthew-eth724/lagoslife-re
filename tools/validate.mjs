@@ -64,11 +64,15 @@ for (const sub of ["data", "dist", "tools"]) {
   for (const f of fs.readdirSync(p(sub)).filter((f) => /\.(md|json|mjs)$/.test(f))) scan.push([`${sub}/${f}`, p(sub, f)]);
 }
 for (const [name, file] of scan) {
-  const text = fs.readFileSync(file, "utf8");
-  for (const [re, label] of SECRET_PATTERNS) {
-    const m = text.match(re);
-    if (m) fail(`possible ${label} in ${name}: ${m[0].slice(0, 12)}…`);
-  }
+  const lines = fs.readFileSync(file, "utf8").split(/\r?\n/);
+  lines.forEach((line, i) => {
+    // Example values in documented commands are marked `allow-secret` on the line.
+    if (line.includes("allow-secret")) return;
+    for (const [re, label] of SECRET_PATTERNS) {
+      const m = line.match(re);
+      if (m) fail(`possible ${label} in ${name}:${i + 1}: ${m[0].slice(0, 12)}…`);
+    }
+  });
 }
 
 // 6. local markdown links resolve
