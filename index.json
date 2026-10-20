@@ -30,8 +30,8 @@
       "path": "AGENTS.md",
       "kind": "entry",
       "title": "Agent entry contract and routing table",
-      "bytes": 4726,
-      "tokens": 1182,
+      "bytes": 4746,
+      "tokens": 1187,
       "when_to_read": "every session",
       "stale_if": "build stamp changes"
     },
@@ -48,8 +48,8 @@
       "path": "REPORT.md",
       "kind": "report",
       "title": "Full analysis: methodology, architecture, findings, recommendations",
-      "bytes": 33033,
-      "tokens": 8259,
+      "bytes": 33002,
+      "tokens": 8251,
       "when_to_read": "security review or writing a summary",
       "stale_if": "build stamp changes"
     },

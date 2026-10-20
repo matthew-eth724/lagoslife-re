@@ -98,7 +98,7 @@ dist/context-pack.md       ~2k-token condensed pack for filesystem-less agents
 tools/build-kb.mjs         generator
 tools/validate.mjs         integrity checks
 tools/lib.mjs              shared parsing/normalisation
-private/                   raw HARs — gitignored, never context
+private/                   raw HARs — gitignored, never context (absent in a clone)
 api-client.extracted.js    verbatim extracted client SDK (public code)
 fetch-wrapper.extracted.js the M() fetch helper (public code)
 ```

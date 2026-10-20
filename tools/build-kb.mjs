@@ -59,6 +59,17 @@ export function build() {
   const sdk = parseStatic();
   const har = parseHar();
 
+  // A clone has no captures (private/ is gitignored). Rebuilding would silently
+  // downgrade every observed endpoint to static-only, so refuse unless told to.
+  if (har.size === 0 && fs.existsSync(p("data", "endpoints.json")) &&
+      !process.argv.includes("--allow-no-har")) {
+    console.error(
+      "No captures found in private/. Refusing to rebuild — it would downgrade\n" +
+      "observed endpoints to static-only. Use --allow-no-har to rebuild from docs alone.",
+    );
+    process.exit(2);
+  }
+
   const idMapPath = p("data", "id-map.json");
   const idMap = fs.existsSync(idMapPath)
     ? readJson(idMapPath)
@@ -166,7 +177,6 @@ export function build() {
 function extractStateKeys() {
   const candidates = [
     p("private", "lagoslife.app.har"),
-    "C:/Users/DELL/lagoslife.app.har",
   ];
   for (const file of candidates) {
     if (!fs.existsSync(file)) continue;

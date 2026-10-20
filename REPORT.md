@@ -573,8 +573,8 @@ The HAR files live in `private/`, which is gitignored and excluded from the know
 agent-facing documents. Delete them once the findings are confirmed:
 
 ```powershell
-Remove-Item C:\Users\DELL\lagoslife-re\private\lagoslife.app.har, `
-          C:\Users\DELL\lagoslife-re\private\lagoslife.app.2.har
+# run from the repository root
+Remove-Item .\private\lagoslife.app.har, .\private\lagoslife.app.2.har
 ```
 
 No credentials, session tokens, passwords, email addresses, or player handles appear in this report.

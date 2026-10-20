@@ -3,8 +3,9 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-export const ROOT = path.resolve("C:/Users/DELL/lagoslife-re");
+export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const BUILD = "1792451178";
 export const CAPTURED = "2026-10-20";
 
@@ -87,8 +88,6 @@ export function parseHar(root = ROOT) {
   const files = [
     { tag: "har:1", p: path.join(root, "private", "lagoslife.app.har") },
     { tag: "har:2", p: path.join(root, "private", "lagoslife.app.2.har") },
-    { tag: "har:1", p: "C:/Users/DELL/lagoslife.app.har" },
-    { tag: "har:2", p: "C:/Users/DELL/lagoslife.app.2.har" },
   ];
   for (const { tag, p } of files) {
     if (!fs.existsSync(p)) continue;
