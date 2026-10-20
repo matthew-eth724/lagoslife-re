@@ -1,0 +1,7 @@
+# Raw captures contain personal data. Never commit, never feed to a model.
+private/
+
+node_modules/
+*.tmp
+.DS_Store
+Thumbs.db

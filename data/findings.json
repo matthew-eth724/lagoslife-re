@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "game": "lagoslife.app",
+    "build": "1792451178",
+    "captured": "2026-10-20",
+    "note": "Structured view of REPORT.md section 6. REPORT.md holds the reasoning; this file holds the fields an agent needs to filter and cite."
+  },
+  "findings": [
+    {
+      "id": "F-01",
+      "title": "Username enumeration via login error code",
+      "category": "enumeration",
+      "severity": "medium",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-01",
+      "evidence": [
+        "POST /api/auth/login returns 404 {error, code:\"no_user\"} for an unknown handle",
+        "A known handle with a bad password returns a different response",
+        "Observed in capture har:2"
+      ],
+      "impact": "Anyone can test whether a handle is registered. Enables targeted phishing, credential-stuffing shortlists and player-base mapping.",
+      "recommendation": "Return one generic failure code for both cases and do not echo the submitted username.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-02",
+      "title": "Client-authoritative economic state on save",
+      "category": "integrity",
+      "severity": "high",
+      "severity_note": "conditional — high only if the server does not re-validate; unproven",
+      "confidence": "unverified",
+      "status": "open",
+      "report_section": "6 / F-02",
+      "evidence": [
+        "PUT /api/save accepts the full game object including money, bank, businesses, invest, bets, cars, fleet, ledger, tax, rentOwed",
+        "The only integrity control visible is `base`, which detects concurrent edits, not implausible values",
+        "Server replies 200 {ok, updatedAt}; nothing in the response indicates a validation pass"
+      ],
+      "impact": "If unvalidated: arbitrary currency and asset creation, economy corruption, monetisation bypass.",
+      "recommendation": "Validate every economic field against server-held authoritative values, or persist deltas only. Reject implausible jumps.",
+      "do_not_test": true,
+      "do_not_test_reason": "Testing requires writing forged state into a live account. Needs written vendor permission and a staging account."
+    },
+    {
+      "id": "F-03",
+      "title": "Floating-point currency",
+      "category": "precision",
+      "severity": "medium",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-03",
+      "evidence": [
+        "An observed balance carried five decimal places",
+        "Monetary values are JSON numbers, not integer minor units"
+      ],
+      "impact": "Binary-float drift across interest, fees, rent and tax: off-by-one balances, failed exact comparisons, rounding exploits.",
+      "recommendation": "Store kobo as integers or as decimal strings.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-04",
+      "title": "Client-submitted XP in /api/levels",
+      "category": "validation",
+      "severity": "low-medium",
+      "confidence": "unverified",
+      "status": "open",
+      "report_section": "6 / F-04",
+      "evidence": [
+        "POST /api/levels body is {op, xp} with xp chosen by the client",
+        "Server did not blindly add it: xp moved 16 -> 30 after submitting xp:26",
+        "Still client-originated input with unknown validation depth"
+      ],
+      "impact": "If weakly validated: level and streak inflation, chest and spin-reward farming.",
+      "recommendation": "Derive XP from server-recorded actions; accept an action id rather than an amount.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-05",
+      "title": "admin flag exposed to the client",
+      "category": "authz",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-05",
+      "evidence": [
+        "GET /api/auth/me returns user.admin as a boolean"
+      ],
+      "impact": "No impact by itself. Becomes high if any endpoint trusts a client-supplied or cached admin value.",
+      "recommendation": "Confirm server-side authorisation on every privileged route; consider omitting the flag from the payload.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-06",
+      "title": "CSRF posture",
+      "category": "csrf",
+      "severity": "info",
+      "confidence": "confirmed",
+      "status": "resolved-mitigated",
+      "report_section": "6 / F-06",
+      "evidence": [
+        "All cookies (ll_session, ll_vid, ll_pass, ll_dev) are HttpOnly, Secure, SameSite=Lax",
+        "OPTIONS /api/send with a foreign Origin returned 204 with no Access-Control-Allow-Origin",
+        "Cross-origin GET /api/auth/me returned no ACAO header",
+        "API is JSON-only, so cross-site HTML forms cannot produce a valid request"
+      ],
+      "impact": "Cross-site request forgery is not practically exploitable.",
+      "recommendation": "Add server-side Origin/Sec-Fetch-Site checks so safety is intentional rather than incidental. Make state-changing operations non-GET (see F-12).",
+      "do_not_test": false
+    },
+    {
+      "id": "F-07",
+      "title": "Verbose, input-echoing error text",
+      "category": "info-disclosure",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-07",
+      "evidence": [
+        "Login error echoes the submitted username",
+        "Errors expose internal state such as 'Please log in' and capacity messages"
+      ],
+      "impact": "Confirms internal state to an attacker and aids enumeration.",
+      "recommendation": "Keep friendly UI copy, add stable machine codes, never echo input.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-08",
+      "title": "Personal data in semi-public listings",
+      "category": "privacy",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-08",
+      "evidence": [
+        "/api/forbes exposes a top-50 leaderboard with profiles",
+        "/api/players search returns 25 players per response",
+        "/api/verified returns 21 [id, name] pairs",
+        "/api/world exposes a live online count (20,475 observed)"
+      ],
+      "impact": "Aggregate player enumeration and activity telemetry; combines with F-01 for account mapping.",
+      "recommendation": "Rate-limit and paginate search; consider hiding exact online counts.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-09",
+      "title": "Client build-id used as a trust signal",
+      "category": "versioning",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-09",
+      "evidence": [
+        "PUT /api/save includes build: \"1792451178\"",
+        "The client gates behaviour on /api/version and /build.json"
+      ],
+      "impact": "A modified client can claim any build id. No security decision should depend on it.",
+      "recommendation": "Treat the build id as telemetry only.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-10",
+      "title": "Long-lived session and device cookies",
+      "category": "session",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-10",
+      "evidence": [
+        "ll_session expires in about 60 days",
+        "ll_dev expires in about 1 year",
+        "No evidence of rotation on password change or privilege change"
+      ],
+      "impact": "Any cookie exfiltration path yields long-lived authenticated access.",
+      "recommendation": "Rotate sessions on password change, shorten the idle window with refresh, and document ll_dev's purpose.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-11",
+      "title": "No __Host- cookie prefix",
+      "category": "hardening",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-11",
+      "evidence": [
+        "Cookies are named ll_session, ll_vid, ll_pass, ll_dev",
+        "No __Host- prefix, which would forbid a Domain attribute"
+      ],
+      "impact": "A compromised sibling subdomain could plant a cookie with the auth name (cookie tossing / session fixation).",
+      "recommendation": "Rename to __Host-ll_session etc. and ensure no Domain attribute is set.",
+      "do_not_test": false
+    },
+    {
+      "id": "F-12",
+      "title": "State-changing operations exposed as GET",
+      "category": "csrf",
+      "severity": "low",
+      "confidence": "confirmed",
+      "status": "open",
+      "report_section": "6 / F-12",
+      "evidence": [
+        "GET /api/wallet/verify?checkout_id= verifies a checkout",
+        "GET /api/ads/verify?checkout_id= verifies an ad payment",
+        "SameSite=Lax still sends cookies on top-level cross-site navigation"
+      ],
+      "impact": "A crafted link can trigger verification for the victim's own pending checkout. Low impact; requires a valid checkout_id.",
+      "recommendation": "Move verification to POST and reject GET on state-changing routes.",
+      "do_not_test": false
+    }
+  ]
+}

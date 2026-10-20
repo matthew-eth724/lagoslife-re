@@ -1,0 +1,2073 @@
+{
+  "meta": {
+    "game": "lagoslife.app",
+    "build": "1792451178",
+    "captured": "2026-10-20",
+    "generated_by": "tools/build-kb.mjs",
+    "note": "Machine-readable view. Prose, bodies and reasoning live in API-REFERENCE.md. Regenerate, never hand-edit."
+  },
+  "counts": {
+    "endpoints": 114,
+    "paths": 90,
+    "observed": 48,
+    "static_only": 66,
+    "doc_only": 0
+  },
+  "endpoints": [
+    {
+      "id": "EP-013",
+      "method": "POST",
+      "path": "/api/auth/age-appeal",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-011",
+      "method": "POST",
+      "path": "/api/auth/delete",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-018",
+      "method": "GET",
+      "path": "/api/auth/email",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-019",
+      "method": "POST",
+      "path": "/api/auth/email",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-020",
+      "method": "GET",
+      "path": "/api/auth/email/verify",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-021",
+      "method": "POST",
+      "path": "/api/auth/email/verify",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-014",
+      "method": "POST",
+      "path": "/api/auth/forgot",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-012",
+      "method": "POST",
+      "path": "/api/auth/lock",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-003",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "query": null,
+      "group": "auth",
+      "auth": "none",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200,
+        404
+      ],
+      "sources": [
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "404 {code:'no_user'} for unknown handle — username enumeration (F-01)."
+    },
+    {
+      "id": "EP-004",
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-005",
+      "method": "POST",
+      "path": "/api/auth/logout-all",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-001",
+      "method": "GET",
+      "path": "/api/auth/me",
+      "query": null,
+      "group": "auth",
+      "auth": "none",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2",
+        "live-probe",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "200 with {user:null} when logged out, not 401. Exposes `user.admin`."
+    },
+    {
+      "id": "EP-009",
+      "method": "POST",
+      "path": "/api/auth/password",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-007",
+      "method": "POST",
+      "path": "/api/auth/profile",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-015",
+      "method": "POST",
+      "path": "/api/auth/recovery",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-002",
+      "method": "POST",
+      "path": "/api/auth/register",
+      "query": null,
+      "group": "auth",
+      "auth": "none",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Turnstile-gated; captcha token required."
+    },
+    {
+      "id": "EP-017",
+      "method": "POST",
+      "path": "/api/auth/reset",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-022",
+      "method": "GET",
+      "path": "/api/auth/security",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-023",
+      "method": "POST",
+      "path": "/api/auth/security",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-010",
+      "method": "POST",
+      "path": "/api/auth/terms",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-016",
+      "method": "POST",
+      "path": "/api/auth/ticket",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-008",
+      "method": "POST",
+      "path": "/api/auth/username",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-006",
+      "method": "GET",
+      "path": "/api/captcha",
+      "query": "for=signup",
+      "group": "auth",
+      "auth": "none",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "live-probe",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Returns the public Turnstile site key."
+    },
+    {
+      "id": "EP-024",
+      "method": "GET",
+      "path": "/api/referrals",
+      "query": null,
+      "group": "auth",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-075",
+      "method": "POST",
+      "path": "/api/wallet/checkout",
+      "query": null,
+      "group": "billing",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-076",
+      "method": "GET",
+      "path": "/api/wallet/pending",
+      "query": null,
+      "group": "billing",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-077",
+      "method": "GET",
+      "path": "/api/wallet/verify",
+      "query": "checkout_id=",
+      "group": "billing",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Mutating GET: verifies a checkout. Reachable cross-site via top-level navigation under SameSite=Lax."
+    },
+    {
+      "id": "EP-090",
+      "method": "GET",
+      "path": "/api/company",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-091",
+      "method": "GET",
+      "path": "/api/credibility",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-102",
+      "method": "GET",
+      "path": "/api/dev-games",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-105",
+      "method": "GET",
+      "path": "/api/dev-games/img/:id/icon",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-093",
+      "method": "GET",
+      "path": "/api/forbes",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-094",
+      "method": "GET",
+      "path": "/api/games",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-066",
+      "method": "GET",
+      "path": "/api/gov",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-070",
+      "method": "POST",
+      "path": "/api/gov/announce",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-069",
+      "method": "POST",
+      "path": "/api/gov/policy",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-067",
+      "method": "POST",
+      "path": "/api/gov/run",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-068",
+      "method": "POST",
+      "path": "/api/gov/vote",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-095",
+      "method": "GET",
+      "path": "/api/jets",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-115",
+      "method": "GET",
+      "path": "/api/og-image/event/:slug",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-100",
+      "method": "GET",
+      "path": "/api/p2p-day",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-096",
+      "method": "GET",
+      "path": "/api/politics",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-074",
+      "method": "DELETE",
+      "path": "/api/push",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-071",
+      "method": "GET",
+      "path": "/api/push",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-073",
+      "method": "PATCH",
+      "path": "/api/push",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-072",
+      "method": "POST",
+      "path": "/api/push",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-097",
+      "method": "GET",
+      "path": "/api/sponsors",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-098",
+      "method": "GET",
+      "path": "/api/squads",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-053",
+      "method": "POST",
+      "path": "/api/venue",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-101",
+      "method": "GET",
+      "path": "/api/verified",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-099",
+      "method": "GET",
+      "path": "/api/zuko",
+      "query": null,
+      "group": "civic",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-048",
+      "method": "GET",
+      "path": "/api/bail",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Own bail status (bailMine); `?friends=1` lists friends who could post bail."
+    },
+    {
+      "id": "EP-049",
+      "method": "POST",
+      "path": "/api/bail",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Three variants by `action`: ask {to, amount}, pay {id}, visit {to, item?}."
+    },
+    {
+      "id": "EP-088",
+      "method": "GET",
+      "path": "/api/bank",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-089",
+      "method": "POST",
+      "path": "/api/bank",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-046",
+      "method": "GET",
+      "path": "/api/hunt",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-047",
+      "method": "POST",
+      "path": "/api/hunt",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-050",
+      "method": "POST",
+      "path": "/api/invite",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-040",
+      "method": "POST",
+      "path": "/api/send",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Money transfer; response carries `fee`. PIN may be required (F-03: float currency)."
+    },
+    {
+      "id": "EP-041",
+      "method": "GET",
+      "path": "/api/send-pin",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-042",
+      "method": "POST",
+      "path": "/api/send-pin",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-051",
+      "method": "POST",
+      "path": "/api/visit",
+      "query": null,
+      "group": "economy",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-078",
+      "method": "GET",
+      "path": "/api/ads",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-079",
+      "method": "POST",
+      "path": "/api/ads",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-080",
+      "method": "DELETE",
+      "path": "/api/ads/:id",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-103",
+      "method": "GET",
+      "path": "/api/ads/:id/image",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-081",
+      "method": "GET",
+      "path": "/api/ads/verify",
+      "query": "checkout_id=",
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Mutating GET: verifies an ad checkout. Same caveat as wallet/verify."
+    },
+    {
+      "id": "EP-092",
+      "method": "GET",
+      "path": "/api/cohabit/arrange",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-054",
+      "method": "GET",
+      "path": "/api/homes",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-055",
+      "method": "GET",
+      "path": "/api/homes/:id",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-058",
+      "method": "DELETE",
+      "path": "/api/homes/:id/knock",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-057",
+      "method": "GET",
+      "path": "/api/homes/:id/knock",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-056",
+      "method": "POST",
+      "path": "/api/homes/:id/knock",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-059",
+      "method": "POST",
+      "path": "/api/knock",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-082",
+      "method": "GET",
+      "path": "/api/my-ads",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-083",
+      "method": "PATCH",
+      "path": "/api/my-ads",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-062",
+      "method": "DELETE",
+      "path": "/api/sea",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-060",
+      "method": "GET",
+      "path": "/api/sea",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-061",
+      "method": "POST",
+      "path": "/api/sea",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-065",
+      "method": "DELETE",
+      "path": "/api/sea/:id",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-063",
+      "method": "GET",
+      "path": "/api/sea/:id",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-064",
+      "method": "POST",
+      "path": "/api/sea/:id",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-104",
+      "method": "GET",
+      "path": "/api/sea/:id/image",
+      "query": null,
+      "group": "property",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-037",
+      "method": "GET",
+      "path": "/api/block",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-038",
+      "method": "POST",
+      "path": "/api/block",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-052",
+      "method": "POST",
+      "path": "/api/board/vote",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-028",
+      "method": "GET",
+      "path": "/api/messages",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-029",
+      "method": "POST",
+      "path": "/api/messages",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "`cid` is a client idempotency key — retries apply once."
+    },
+    {
+      "id": "EP-032",
+      "method": "POST",
+      "path": "/api/messages/read",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-031",
+      "method": "POST",
+      "path": "/api/messages/requests",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-030",
+      "method": "POST",
+      "path": "/api/messages/voice",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-039",
+      "method": "POST",
+      "path": "/api/report",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-034",
+      "method": "GET",
+      "path": "/api/room",
+      "query": "host=&since=",
+      "group": "social",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-035",
+      "method": "POST",
+      "path": "/api/room",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-036",
+      "method": "POST",
+      "path": "/api/say",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-027",
+      "method": "POST",
+      "path": "/api/social",
+      "query": null,
+      "group": "social",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-043",
+      "method": "GET",
+      "path": "/api/family",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-044",
+      "method": "POST",
+      "path": "/api/family",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-113",
+      "method": "POST",
+      "path": "/api/food-gift",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-111",
+      "method": "GET",
+      "path": "/api/levels",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-112",
+      "method": "POST",
+      "path": "/api/levels",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": "Client submits {op, xp}. Server did not blindly add it (16→30 on xp:26), but value is still client-originated (F-04)."
+    },
+    {
+      "id": "EP-045",
+      "method": "POST",
+      "path": "/api/party",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-107",
+      "method": "GET",
+      "path": "/api/save",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Returns {game, updatedAt, now}; `game` has 133 top-level keys."
+    },
+    {
+      "id": "EP-114",
+      "method": "PUT",
+      "path": "/api/save",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Client-authoritative snapshot: {game, owner, base, build}. `base` detects concurrency, not plausibility (F-02)."
+    },
+    {
+      "id": "EP-108",
+      "method": "GET",
+      "path": "/api/save/backup",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-109",
+      "method": "GET",
+      "path": "/api/save/old-account",
+      "query": null,
+      "group": "state",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-086",
+      "method": "GET",
+      "path": "/api/version",
+      "query": null,
+      "group": "state",
+      "auth": "none",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "live-probe"
+      ],
+      "in_sdk": false,
+      "note": "Build stamp used for staleness checks."
+    },
+    {
+      "id": "EP-084",
+      "method": "POST",
+      "path": "/api/client-error",
+      "query": null,
+      "group": "world",
+      "auth": "none",
+      "mutating": true,
+      "confidence": "static-only",
+      "validation": "unverified",
+      "observed_status": [],
+      "sources": [
+        "static:boot"
+      ],
+      "in_sdk": false,
+      "note": "sendBeacon telemetry: {message, stack, where, url, uid, screen, build}."
+    },
+    {
+      "id": "EP-026",
+      "method": "GET",
+      "path": "/api/daily",
+      "query": null,
+      "group": "world",
+      "auth": "none",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "live-probe"
+      ],
+      "in_sdk": false,
+      "note": "Daily headline/weather; no auth required."
+    },
+    {
+      "id": "EP-087",
+      "method": "GET",
+      "path": "/api/go",
+      "query": null,
+      "group": "world",
+      "auth": "none",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "live-probe"
+      ],
+      "in_sdk": false,
+      "note": "Referral redirect; returns an HTML page, not JSON."
+    },
+    {
+      "id": "EP-110",
+      "method": "GET",
+      "path": "/api/live",
+      "query": null,
+      "group": "world",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:2"
+      ],
+      "in_sdk": false,
+      "note": ""
+    },
+    {
+      "id": "EP-085",
+      "method": "GET",
+      "path": "/api/origin",
+      "query": null,
+      "group": "world",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "static-only",
+      "validation": "n/a",
+      "observed_status": [],
+      "sources": [
+        "static"
+      ],
+      "in_sdk": true,
+      "note": ""
+    },
+    {
+      "id": "EP-033",
+      "method": "GET",
+      "path": "/api/players",
+      "query": "q=",
+      "group": "world",
+      "auth": "session",
+      "mutating": false,
+      "confidence": "confirmed-live",
+      "validation": "n/a",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "live-probe"
+      ],
+      "in_sdk": false,
+      "note": "401 {'Please log in'} without a session."
+    },
+    {
+      "id": "EP-025",
+      "method": "POST",
+      "path": "/api/world",
+      "query": null,
+      "group": "world",
+      "auth": "session",
+      "mutating": true,
+      "confidence": "confirmed-live",
+      "validation": "unverified",
+      "observed_status": [
+        200
+      ],
+      "sources": [
+        "har:1",
+        "har:2",
+        "static"
+      ],
+      "in_sdk": true,
+      "note": "Presence beacon; response carries feature flags (cities, refinery, risk, econ, pol, tl, give, cred, soc, chd, homeExt)."
+    }
+  ]
+}

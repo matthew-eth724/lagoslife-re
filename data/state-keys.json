@@ -1,0 +1,594 @@
+{
+  "meta": {
+    "source": "PUT /api/save request body (capture #1)",
+    "build": "1792451178",
+    "captured": "2026-10-20",
+    "note": "Types and lengths only. No values are stored here."
+  },
+  "count": 133,
+  "economic": [
+    "money",
+    "blessings",
+    "rewards",
+    "home",
+    "rentOwed",
+    "lastRentDay",
+    "pantry",
+    "car",
+    "rentPaidBy",
+    "tax",
+    "rentPaidUntil",
+    "land",
+    "businesses",
+    "cars",
+    "rentCut",
+    "invest",
+    "fleet",
+    "homes",
+    "bets",
+    "ledger",
+    "billsOwed",
+    "bank",
+    "rentKeep"
+  ],
+  "keys": {
+    "version": {
+      "type": "number",
+      "economic": false
+    },
+    "phase": {
+      "type": "string",
+      "economic": false
+    },
+    "sim": {
+      "type": "object",
+      "economic": false
+    },
+    "needs": {
+      "type": "object",
+      "economic": false
+    },
+    "skills": {
+      "type": "object",
+      "economic": false
+    },
+    "money": {
+      "type": "number",
+      "economic": true
+    },
+    "blessings": {
+      "type": "number",
+      "economic": true
+    },
+    "rewards": {
+      "type": "array",
+      "items": 1,
+      "economic": true
+    },
+    "time": {
+      "type": "number",
+      "economic": false
+    },
+    "speed": {
+      "type": "number",
+      "economic": false
+    },
+    "home": {
+      "type": "string",
+      "economic": true
+    },
+    "objects": {
+      "type": "array",
+      "items": 88,
+      "economic": false
+    },
+    "layoutV": {
+      "type": "number",
+      "economic": false
+    },
+    "salonFixed": {
+      "type": "boolean",
+      "economic": false
+    },
+    "queue": {
+      "type": "array",
+      "items": 1,
+      "economic": false
+    },
+    "pos": {
+      "type": "object",
+      "economic": false
+    },
+    "path": {
+      "type": "array",
+      "items": 2,
+      "economic": false
+    },
+    "facing": {
+      "type": "number",
+      "economic": false
+    },
+    "location": {
+      "type": "string",
+      "economic": false
+    },
+    "travel": {
+      "type": "null",
+      "economic": false
+    },
+    "work": {
+      "type": "null",
+      "economic": false
+    },
+    "job": {
+      "type": "null",
+      "economic": false
+    },
+    "relationships": {
+      "type": "object",
+      "economic": false
+    },
+    "romance": {
+      "type": "null",
+      "economic": false
+    },
+    "moodlets": {
+      "type": "array",
+      "items": 5,
+      "economic": false
+    },
+    "power": {
+      "type": "boolean",
+      "economic": false
+    },
+    "powerChangeAt": {
+      "type": "number",
+      "economic": false
+    },
+    "fuel": {
+      "type": "number",
+      "economic": false
+    },
+    "weather": {
+      "type": "string",
+      "economic": false
+    },
+    "rentOwed": {
+      "type": "number",
+      "economic": true
+    },
+    "lastRentDay": {
+      "type": "number",
+      "economic": true
+    },
+    "wishes": {
+      "type": "array",
+      "items": 3,
+      "economic": false
+    },
+    "wishSeed": {
+      "type": "number",
+      "economic": false
+    },
+    "events": {
+      "type": "array",
+      "items": 0,
+      "economic": false
+    },
+    "lastEventCheck": {
+      "type": "number",
+      "economic": false
+    },
+    "notices": {
+      "type": "array",
+      "items": 40,
+      "economic": false
+    },
+    "freeWill": {
+      "type": "boolean",
+      "economic": false
+    },
+    "idleMinutes": {
+      "type": "number",
+      "economic": false
+    },
+    "sound": {
+      "type": "boolean",
+      "economic": false
+    },
+    "music": {
+      "type": "boolean",
+      "economic": false
+    },
+    "stats": {
+      "type": "object",
+      "economic": false
+    },
+    "goal": {
+      "type": "number",
+      "economic": false
+    },
+    "warned": {
+      "type": "object",
+      "economic": false
+    },
+    "tutorialStep": {
+      "type": "number",
+      "economic": false
+    },
+    "lastMode": {
+      "type": "string",
+      "economic": false
+    },
+    "pantry": {
+      "type": "object",
+      "economic": true
+    },
+    "outbox": {
+      "type": "object",
+      "economic": false
+    },
+    "origin": {
+      "type": "string",
+      "economic": false
+    },
+    "car": {
+      "type": "boolean",
+      "economic": true
+    },
+    "rentPaidBy": {
+      "type": "string",
+      "economic": true
+    },
+    "gifts": {
+      "type": "array",
+      "items": 1,
+      "economic": false
+    },
+    "healthHour": {
+      "type": "number",
+      "economic": false
+    },
+    "neglect": {
+      "type": "number",
+      "economic": false
+    },
+    "family": {
+      "type": "object",
+      "economic": false
+    },
+    "paidIds": {
+      "type": "array",
+      "items": 25,
+      "economic": false
+    },
+    "autoWork": {
+      "type": "boolean",
+      "economic": false
+    },
+    "gigRest": {
+      "type": "object",
+      "economic": false
+    },
+    "tax": {
+      "type": "object",
+      "economic": true
+    },
+    "record": {
+      "type": "number",
+      "economic": false
+    },
+    "daddyBailAt": {
+      "type": "number",
+      "economic": false
+    },
+    "daddyDebt": {
+      "type": "number",
+      "economic": false
+    },
+    "unblockV": {
+      "type": "number",
+      "economic": false
+    },
+    "policy": {
+      "type": "object",
+      "economic": false
+    },
+    "rentPaidUntil": {
+      "type": "number",
+      "economic": true
+    },
+    "decorOwned": {
+      "type": "object",
+      "economic": false
+    },
+    "decor": {
+      "type": "object",
+      "economic": false
+    },
+    "foodGot": {
+      "type": "array",
+      "items": 2,
+      "economic": false
+    },
+    "storage": {
+      "type": "array",
+      "items": 13,
+      "economic": false
+    },
+    "lastTab": {
+      "type": "object",
+      "economic": false
+    },
+    "gotAway": {
+      "type": "number",
+      "economic": false
+    },
+    "wardrobe": {
+      "type": "array",
+      "items": 9,
+      "economic": false
+    },
+    "ownClothes": {
+      "type": "object",
+      "economic": false
+    },
+    "fit": {
+      "type": "string",
+      "economic": false
+    },
+    "carId": {
+      "type": "string",
+      "economic": false
+    },
+    "land": {
+      "type": "array",
+      "items": 299,
+      "economic": true
+    },
+    "trailers": {
+      "type": "number",
+      "economic": false
+    },
+    "trailerDay": {
+      "type": "number",
+      "economic": false
+    },
+    "businesses": {
+      "type": "array",
+      "items": 8,
+      "economic": true
+    },
+    "bizDay": {
+      "type": "number",
+      "economic": false
+    },
+    "cars": {
+      "type": "array",
+      "items": 10,
+      "economic": true
+    },
+    "efccWatch": {
+      "type": "object",
+      "economic": false
+    },
+    "staff": {
+      "type": "object",
+      "economic": false
+    },
+    "rentCut": {
+      "type": "boolean",
+      "economic": true
+    },
+    "invest": {
+      "type": "object",
+      "economic": true
+    },
+    "busCo": {
+      "type": "object",
+      "economic": false
+    },
+    "fleet": {
+      "type": "array",
+      "items": 5,
+      "economic": true
+    },
+    "busDay": {
+      "type": "number",
+      "economic": false
+    },
+    "homes": {
+      "type": "object",
+      "economic": true
+    },
+    "bets": {
+      "type": "array",
+      "items": 1,
+      "economic": true
+    },
+    "uni": {
+      "type": "object",
+      "economic": false
+    },
+    "shopGot": {
+      "type": "array",
+      "items": 4,
+      "economic": false
+    },
+    "naturalHair": {
+      "type": "object",
+      "economic": false
+    },
+    "courtLog": {
+      "type": "array",
+      "items": 1,
+      "economic": false
+    },
+    "guestKitchen": {
+      "type": "boolean",
+      "economic": false
+    },
+    "lastSlip": {
+      "type": "object",
+      "economic": false
+    },
+    "school": {
+      "type": "object",
+      "economic": false
+    },
+    "suggestAt": {
+      "type": "number",
+      "economic": false
+    },
+    "commutePref": {
+      "type": "string",
+      "economic": false
+    },
+    "missions": {
+      "type": "object",
+      "economic": false
+    },
+    "streak": {
+      "type": "object",
+      "economic": false
+    },
+    "rep": {
+      "type": "number",
+      "economic": false
+    },
+    "storiesDone": {
+      "type": "object",
+      "economic": false
+    },
+    "memberships": {
+      "type": "object",
+      "economic": false
+    },
+    "repDay": {
+      "type": "number",
+      "economic": false
+    },
+    "repBest": {
+      "type": "number",
+      "economic": false
+    },
+    "skillUsed": {
+      "type": "object",
+      "economic": false
+    },
+    "skillBest": {
+      "type": "object",
+      "economic": false
+    },
+    "skillFaded": {
+      "type": "number",
+      "economic": false
+    },
+    "risk": {
+      "type": "object",
+      "economic": false
+    },
+    "ledger": {
+      "type": "array",
+      "items": 59,
+      "economic": true
+    },
+    "cover": {
+      "type": "object",
+      "economic": false
+    },
+    "owned": {
+      "type": "array",
+      "items": 4,
+      "economic": false
+    },
+    "team": {
+      "type": "object",
+      "economic": false
+    },
+    "billsOwed": {
+      "type": "number",
+      "economic": true
+    },
+    "owambeDay": {
+      "type": "number",
+      "economic": false
+    },
+    "owner": {
+      "type": "string",
+      "economic": false
+    },
+    "handiFix": {
+      "type": "object",
+      "economic": false
+    },
+    "decorLanded": {
+      "type": "array",
+      "items": 1,
+      "economic": false
+    },
+    "repCooled": {
+      "type": "number",
+      "economic": false
+    },
+    "aspirationsDone": {
+      "type": "array",
+      "items": 2,
+      "economic": false
+    },
+    "aspirationAt": {
+      "type": "number",
+      "economic": false
+    },
+    "settled": {
+      "type": "string",
+      "economic": false
+    },
+    "build": {
+      "type": "object",
+      "economic": false
+    },
+    "stadiumPass": {
+      "type": "object",
+      "economic": false
+    },
+    "fuelScarcityDay": {
+      "type": "number",
+      "economic": false
+    },
+    "edu": {
+      "type": "object",
+      "economic": false
+    },
+    "bmPaid": {
+      "type": "object",
+      "economic": false
+    },
+    "bank": {
+      "type": "object",
+      "economic": true
+    },
+    "biz": {
+      "type": "object",
+      "economic": false
+    },
+    "rentKeep": {
+      "type": "array",
+      "items": 3,
+      "economic": true
+    },
+    "practice": {
+      "type": "object",
+      "economic": false
+    },
+    "lvXp": {
+      "type": "number",
+      "economic": false
+    },
+    "lvGot": {
+      "type": "array",
+      "items": 1,
+      "economic": false
+    }
+  }
+}
