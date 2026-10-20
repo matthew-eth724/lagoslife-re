@@ -5,10 +5,17 @@
 | **Target** | `https://lagoslife.app` — "Lagos Life", browser-based life-sim game |
 | **Client build** | `1792451178` (also observed `1792444919`, `1792451178`) |
 | **Report date** | 2026-10-20 |
-| **Analyst** | OpenCode agent (automated + manual analysis) |
-| **Classification** | Internal / share with vendor on request |
+| **Analyst** | Independent research, AI-assisted |
+| **Status** | **Public** — published 2026-10-20 |
 | **Scope** | Client-side application and its HTTP API surface |
-| **Authorization** | Analysis performed on the owner's own account and browser session |
+| **Authorization** | Analysis performed on the author's own account and browser session |
+
+> **For the operator.** Two items are worth your attention first: **F-01** (username
+> enumeration on login, trivially reproducible) and **F-02** (the save endpoint accepts the
+> client's full game state — whether it is validated server-side could not be determined
+> from outside, and was deliberately not tested). Everything below F-02 is hardening.
+> No other players' data was accessed, no forged state was written, and no load testing was
+> performed. Corrections, redaction and takedown requests: see [`SECURITY.md`](SECURITY.md).
 
 ---
 
@@ -16,7 +23,7 @@
 
 Lagos Life is a Next.js (Turbopack) life-simulation game. Its entire backend contract is exercised through a single-page client SDK of ~98 call sites covering **67 unique API paths**, served same-origin behind Cloudflare. The API is conventionally structured, uses a JSON error envelope, Cloudflare Turnstile for signup, and a revision-based optimistic-concurrency model for saves.
 
-Across two authenticated HAR captures (455 requests, 162 of them API calls) and static analysis of the shipped JavaScript, the API surface resolves to **69 distinct method+path operations across 64 paths**.
+Across two authenticated HAR captures (455 requests, 162 of them API calls) and static analysis of the shipped JavaScript, the API surface resolves to **69 operations observed in traffic across 64 paths** — and **114 operations across 90 paths** once the declarations reachable only through static analysis are included (see `data/endpoints.json`).
 
 ### Headline results
 
@@ -566,8 +573,8 @@ REA's `analyze-web-bundle` (CDP-driven) **hung** against this target — the gam
 | `data/*.json` | Derived facts only — types and metadata, no values | Low |
 | `api-client.extracted.js` | Client SDK (10.5 KB) | Low — public code |
 | `fetch-wrapper.extracted.js` | Request helper | Low — public code |
-| `private/lagoslife.app.har` | 307 entries incl. 85 message threads, email, player IDs | **High — contains personal data** |
-| `private/lagoslife.app.2.har` | 148 entries incl. login attempt and save state | **High** |
+| `private/lagoslife.app.har` | Personal data (messages, account details, player ids) — **not published** | **High** |
+| `private/lagoslife.app.2.har` | Login flow and save state — **not published** | **High** |
 
 The HAR files live in `private/`, which is gitignored and excluded from the knowledge base's
 agent-facing documents. Delete them once the findings are confirmed:
