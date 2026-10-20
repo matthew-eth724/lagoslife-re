@@ -141,7 +141,9 @@ export function build() {
 
   // ---- manifest ----
   const docsMeta = [
+    ["README.md", "entry", "Human entry point and repository layout", "first visit by a person", "layout changes"],
     ["AGENTS.md", "entry", "Agent entry contract and routing table", "every session", "build stamp changes"],
+    ["SECURITY.md", "policy", "Disclosure status and handling rules", "before acting on any finding", "status changes"],
     ["index.json", "manifest", "Machine-readable map of this knowledge base", "to plan what to read", "any file changes"],
     ["REPORT.md", "report", "Full analysis: methodology, architecture, findings, recommendations", "security review or writing a summary", "build stamp changes"],
     ["API-REFERENCE.md", "reference", "Human-readable endpoint reference with bodies and notes", "any request against the API", "build stamp changes"],
@@ -160,6 +162,7 @@ export function build() {
       "security review": ["REPORT.md", "data/findings.json"],
       "understand the save model": ["API-REFERENCE.md", "data/state-keys.json"],
       "check one endpoint": ["data/endpoints.json"],
+      "check disclosure status": ["SECURITY.md"],
       "no filesystem access": ["dist/context-pack.md"],
     },
     files: docsMeta.map(([file, kind, title, when, stale]) => {

@@ -21,19 +21,40 @@
     "check one endpoint": [
       "data/endpoints.json"
     ],
+    "check disclosure status": [
+      "SECURITY.md"
+    ],
     "no filesystem access": [
       "dist/context-pack.md"
     ]
   },
   "files": [
     {
+      "path": "README.md",
+      "kind": "entry",
+      "title": "Human entry point and repository layout",
+      "bytes": 2359,
+      "tokens": 590,
+      "when_to_read": "first visit by a person",
+      "stale_if": "layout changes"
+    },
+    {
       "path": "AGENTS.md",
       "kind": "entry",
       "title": "Agent entry contract and routing table",
-      "bytes": 4746,
-      "tokens": 1187,
+      "bytes": 5067,
+      "tokens": 1267,
       "when_to_read": "every session",
       "stale_if": "build stamp changes"
+    },
+    {
+      "path": "SECURITY.md",
+      "kind": "policy",
+      "title": "Disclosure status and handling rules",
+      "bytes": 3286,
+      "tokens": 822,
+      "when_to_read": "before acting on any finding",
+      "stale_if": "status changes"
     },
     {
       "path": "index.json",

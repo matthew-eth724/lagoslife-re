@@ -39,6 +39,8 @@ roughly 13k tokens of the context budget.
    label is the evidence.
 5. **Never invent endpoints, fields, or status codes.** If it is not in
    `data/endpoints.json` or the docs, it is unknown — say unknown.
+6. **Nothing here authorises testing the target.** Disclosure status and handling rules
+   live in `SECURITY.md`; the repository is unaffiliated with the operator.
 
 ---
 
@@ -86,10 +88,13 @@ and bump the stamp at the top of this file.
 ## Map
 
 ```
+README.md                  human entry point and layout
 AGENTS.md                  this file — entry contract
 index.json                 machine manifest (paths, token counts, when to read)
 REPORT.md                  analysis: methodology, architecture, F-01..F-12
 API-REFERENCE.md           endpoint reference with bodies and notes
+SECURITY.md                disclosure status and handling rules
+LICENSE                    CC BY 4.0
 data/endpoints.json        every operation: id, auth, confidence, evidence, observed status
 data/findings.json         findings as fields, for filtering and citation
 data/state-keys.json       top-level `game` keys with types and economic flags
