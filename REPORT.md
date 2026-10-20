@@ -347,9 +347,21 @@ No sockets. `/api/room?host=&since=`, `/api/messages?with=&since=` and `/api/wor
 
 versus a different response for a real account with a bad password. The `code` field makes this machine-detectable without parsing prose.
 
+**Reproduce** (one request; no account needed):
+
+```bash
+curl -s -w '\n%{http_code}\n' -X POST https://lagoslife.app/api/auth/login \
+  -H 'Content-Type: application/json' \
+  -d '{"username":"no_such_player_zz9","password":"invalid"}'
+```
+
+Expected: `404` with `{"error":"We can't find a player called …","code":"no_user"}`.
+A registered handle does **not** return `no_user`; that code is the discriminator, independent
+of the wording. The wrong-password branch was not captured, so its exact text is not quoted here.
+
 **Impact:** anyone can test whether a handle is registered — useful for targeted phishing, credential stuffing shortlists, and mapping the player base. The error message also echoes the submitted name, which is an invitation to reflected-content tricks in any client that renders it unsafely.
 
-**Recommendation:** return a single generic failure (`invalid_credentials`) for both cases, and never echo input back.
+**Recommendation:** return a single generic failure (`invalid_credentials`) for both cases, and never echo input back. A per-IP rate limit on `/api/auth/login` would blunt bulk enumeration even before the message is fixed.
 
 ---
 
